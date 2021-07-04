@@ -1,0 +1,27 @@
+<form [formGroup]="userForm">
+    <input type="text" id="input" name="post" formControlName="post" autofocus />
+</form>
+<button [class.spinner]="loading" [disabled]="loading" (click)="sendata()">post</button>
+<div id="demo7" *ngFor="let item of tabledata;let i=index">
+    <p id="demo">
+        posted on{{item?.date}}
+    </p>
+    <h5 id="demo1"> {{item?.post}}</h5>
+
+    <button class="demo2" id={{item?.id}} (click)="number(item)"><img [src]="image"/></button>
+    <h4 id="demo4">{{item?.postlike}}</h4>
+    <button class="demo5" id={{item?.id}} (click)="post(item)">comments</button>
+    <div *ngIf="load">
+        <form [formGroup]="userForm1">
+            <input type="text" class="input1" name="comm" formControlName="comm" required/>
+        </form>
+        <button class="demo6" (click)="postcomm()">postcomm</button>
+    </div>
+    <div id="dem1">
+        <div *ngFor="let item1 of commentdata;let i=index">
+            <p>
+                {{item1?.comment}}
+            </p>
+        </div>
+    </div>
+</div>
